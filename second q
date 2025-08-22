@@ -19,7 +19,7 @@ int main()
 	else
 	{
 		quotient= (float)num1/num2;
-		printf("Quotient= %.2f\n",quotient);
+		printf("Quotient= %f\n",quotient);
 	}
 
 	printf("Sum= %d\n",sum);
