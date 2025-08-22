@@ -1,0 +1,32 @@
+#include <stdio.h>
+int main()
+{
+	int num1,num2,sum=0,product=0,diff=0;
+	float quotient=0;
+
+	printf("Enter the first number=");
+	scanf("%d",&num1);
+	printf("Enter the second number=");
+	scanf("%d",&num2);
+	sum= num1+num2;
+	diff= num1-num2;
+	product= num1*num2;
+
+	if(num2==0)
+	{
+		printf("cannot divide by zero \n");
+	}
+	else
+	{
+		quotient= (float)num1/num2;
+		printf("Quotient= %.2f\n",quotient);
+	}
+
+	printf("Sum= %d\n",sum);
+	printf("Difference= %d\n",diff);
+	printf("Product=%d\n",product);
+
+	return 0;
+}
+
+
