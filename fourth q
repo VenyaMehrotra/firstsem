@@ -1,0 +1,14 @@
+\\ Program to calculate area and circum
+#include <stdio.h>
+int main()
+{
+    int radius;
+    float area,circum,pi=3.14;
+    printf("Enter the radius=");
+    scanf("%d",&radius);
+    area=pi*radius*radius;
+    circum=2*pi*radius;
+    printf("Area=%f\n",area);
+    printf("Circumferene=%f\n",circum);
+    return 0;
+}
