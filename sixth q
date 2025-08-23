@@ -1,0 +1,18 @@
+\\Program to swap two numbers
+#include <stdio.h>
+
+int main()
+{
+int num1,num2,variable;
+printf("Enter the first number=");
+scanf("%d",&num1);
+printf("Enter the second number=");
+scanf("%d",&num2);
+variable=num1;
+num1=num2;
+num2=variable;
+printf("Swapped numbers are=%d ",num1);
+printf("%d\n",num2);
+
+    return 0;
+}
