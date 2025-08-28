@@ -1,4 +1,4 @@
-\* Write a program to calculate length and breadth*\
+//Write a program to calculate length and breadth
 #include <stdio.h>
 
 int main()
