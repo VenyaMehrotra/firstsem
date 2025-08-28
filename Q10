@@ -1,4 +1,4 @@
-\\Program to input time in secs and convert to hours:mins:secs format
+//Program to input time in secs and convert to hours:mins:secs format
 #include <stdio.h>
 
 int main()
