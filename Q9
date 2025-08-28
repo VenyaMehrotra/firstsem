@@ -1,9 +1,9 @@
-\\Program to calculate simple interest and compound interest
+//Program to calculate simple interest and compound interest
 #include <stdio.h>
-
+#include <maths.h>
 int main()
 {
-    float principal,rate,time,si=0,ci=0,amt,x=1;
+    float principal,rate,time,si=0,ci=0,amt;
     int i;
     printf("Enter the princiapl amount=");
     scanf("%f",&principal);
@@ -12,11 +12,7 @@ int main()
     printf("Enter the time=");
     scanf("%f",&time);
     si=(principal*rate*time)/100;
-    for(i=0;i<(int)time;i++)
-    {
-        x=x*(1+rate/100);
-    }
-    amt=principal*x;
+    amt=principal*pow((1+rate/100),time);
     ci=amt-principal;
     printf("Simple Interest= %f \n",si);
     printf("Compound Interest= %f \n",ci);
