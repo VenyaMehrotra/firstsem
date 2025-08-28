@@ -1,0 +1,26 @@
+//Program to find largest of three numbers
+#include <stdio.h>
+int main()
+{
+    int a,b,c;
+    printf("enter the first number=");
+    scanf("%d",&a);
+    printf("enter the second number=");
+    scanf("%d",&b);
+    printf("enter the third number=");
+    scanf("%d",&c);
+    if(a>b && a>c)
+    {
+        printf("%d is the largest",a);}
+        else if(c>b&&c>a)
+        {
+         printf("%d is the largest",c);}
+    
+    else 
+    {
+        printf("%d is the largest",b);
+    }
+    return 0;
+}
+    
+
