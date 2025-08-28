@@ -1,3 +1,4 @@
+//Program to calculate sum
 #include<stdio.h>
 int main()
 {
@@ -7,7 +8,7 @@ scanf("%d",&num1);
 printf("Enter the second number=");
 scanf("%d",&num2);
 sum=num1+num2;
-printf("The sum is %d ,sum;);
+printf("The sum is %d",sum);
 
 return 0;
 }
