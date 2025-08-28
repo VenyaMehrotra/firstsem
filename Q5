@@ -1,4 +1,4 @@
-\\Program to covert celsius to fahrenheit
+//Program to covert celsius to fahrenheit
 #include <stdio.h>
 
 int main()
