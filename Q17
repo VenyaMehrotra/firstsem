@@ -1,0 +1,33 @@
+//Program to find roots of quadratic equation and categorize them
+#include <stdio.h>
+#include <math.h>
+int main() 
+{
+    int num1,num2,num3;
+    float discriminant, root1, root2;
+
+    printf("Enter three numbers=\n");
+    scanf("%d %d %d", &num1, &num2, &num3);
+    discriminant = num2*num2-4 *num1*num3;
+
+    if (discriminant>0) 
+    {
+        root1 = (-num2 + sqrt(discriminant)) / (2 * num1);
+        root2 = (-num2 - sqrt(discriminant)) / (2 *num1);
+        printf("Roots are real and distinct \n");
+        printf("Root 1 = %f ",root1);
+        printf("Root 2 = %f",root2);
+    } 
+    else if (discriminant==0)
+     {
+        root1 = -num2/(2*num1);
+        printf("Roots are real and equal\n");
+        printf("Root = %f", root1);
+    } 
+    else 
+    {
+        printf("Roots are imaginary");
+    }
+
+    return 0;
+}
