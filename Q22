@@ -1,0 +1,24 @@
+//Program to calculate profit and loss percentage
+#include <stdio.h>
+int main()
+{
+    float cp,sp,profit,loss;
+    printf("Enter the selling price=");
+    scanf("%f",&sp);
+    printf("Enter the cost price=");
+    scanf("%f",&cp);
+    if (sp>cp)
+    {
+        profit=(sp-cp)/cp*100;
+        printf("Profit percentage= %f",profit);
+    }
+     else if (cp>sp)
+    {
+        loss=(cp-sp)/cp*100;
+        printf("Loss percentage= %f",loss);
+    }
+    else {
+        printf("No profit no loss");
+    }
+    return 0;
+}
