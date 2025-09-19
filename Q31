@@ -1,0 +1,23 @@
+//Program to input a number and convert it into binary form
+#include <stdio.h>
+int main() 
+{
+    int num, binary = 0, place = 1, rem;
+
+    printf("Enter a decimal number: ");
+    scanf("%d", &num);
+    if (num == 0)
+     {
+        printf("Binary form=");
+        return 0;
+    }
+    while (num > 0) 
+    {
+        rem = num % 2;          
+        binary = binary + rem * place;
+        place = place * 10;     
+        num = num / 2;
+    }
+    printf("Binary form= %d", binary);
+    return 0;
+ }
