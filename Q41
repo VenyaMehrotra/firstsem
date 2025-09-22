@@ -1,0 +1,25 @@
+//Write a program to swap first and last digits of a number
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    int num,first,end,power,digit,swap;
+    printf("Enter the number=");
+    scanf("%d",&num);
+    if(num>=0&&num<10)
+    {
+        printf("Swapped number= %d",num);
+    }
+    else
+    {
+    digit=log10(num);
+    power=pow(10,digit);
+    first=num/power;
+    num=num%power;
+    end=num%10;
+    num=num/10;
+    swap=end*power+num*10+first;
+    printf("Swapped number= %d",swap);
+    }
+    return 0;
+}
