@@ -1,0 +1,48 @@
+/*Q69: Find the second largest element in an array.
+Sample Test Cases:
+Input 1:
+5
+10 20 30 40 50
+Output 1:
+40
+*/
+#include <stdio.h>
+int main()
+{
+    int arr[50],n,i,max,secondmax;
+    printf("How many elements do you want to enter=");
+    scanf("%d",&n);
+    printf("Enter the elements=");
+    for(i=0;i<=n-1;i++)
+    {
+   scanf("%d",&arr[i]);
+    }
+    if(n<3)
+    {
+        printf("Please enter atleast 3 elements");
+        return 0;
+    }
+    max=arr[0];
+    secondmax=arr[1];
+    for(i=2;i<n;i++)
+    {
+        if(arr[i]>max)
+        {
+        secondmax=max;
+        max=arr[i];
+        }
+        else if (arr[i]>secondmax&&arr[i]!=max)
+        {
+            secondmax=arr[i];
+        }
+    }
+    if(max==secondmax)
+    {
+        printf("There is no second largest element");
+    }
+    else 
+    {
+        printf("The Second largest element = %d",secondmax);
+    }
+    return 0;
+}
