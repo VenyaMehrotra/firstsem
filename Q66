@@ -10,7 +10,7 @@ Output 1:
 #include <stdio.h>
 int main() {
     
-    int n, i, j, element;
+    int n, i, j, position;
     printf("Enter number of elements=");
     scanf("%d", &n);
     int arr[n + 1]; 
@@ -21,12 +21,12 @@ int main() {
         scanf("%d", &arr[i]);
     }
     printf("Enter element to insert=");
-    scanf("%d", &element);
+    scanf("%d", &position);
     for (i = 0; i < n; i++) 
     {
-        if (arr[i]>element) 
+        if (arr[i]>position) 
         {
-            break;
+            return 0;
         }
     }
 
@@ -34,7 +34,7 @@ int main() {
      {
         arr[j] = arr[j - 1];
     }
-    arr[i] = element;
+    arr[i] = position;
     n++;
     printf("New array=");
     for (i = 0; i < n; i++) 
