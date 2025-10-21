@@ -1,4 +1,4 @@
-//Write a program to check if a Matrix is symmetric
+/Write a program to check if a Matrix is symmetric
 #include <stdio.h>
 int main()
  {
