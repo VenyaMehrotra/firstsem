@@ -1,4 +1,4 @@
-/Program to input a number and convert it into binary form
+//Program to input a number and convert it into binary form
 #include <stdio.h>
 int main() 
 {
