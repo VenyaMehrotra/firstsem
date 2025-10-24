@@ -1,4 +1,4 @@
-//Program to calculate simple interest and compound interest
+/Program to calculate simple interest and compound interest
 #include <stdio.h>
 #include <maths.h>
 int main()
