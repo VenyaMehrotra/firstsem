@@ -1,4 +1,4 @@
-/Program to check whether the given character is uppercase,lowercase,digit or special character
+//Program to check whether the given character is uppercase,lowercase,digit or special character
 #include <stdio.h>
 int main()
 {
