@@ -1,4 +1,4 @@
-//Write a program to check if the diagonals of a matrix are distinct
+/Write a program to check if the diagonals of a matrix are distinct
 #include<stdio.h>
 int main()
 {
