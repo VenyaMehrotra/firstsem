@@ -1,4 +1,4 @@
-//Program to find largest of three numbers
+//rogram to find largest of three numbers
 #include <stdio.h>
 int main()
 {
