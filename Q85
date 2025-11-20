@@ -1,4 +1,4 @@
-//Q85Reverse a string.
+//Q85Reverse a string
 #include <stdio.h>
 int main()
 {
