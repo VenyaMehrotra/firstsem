@@ -1,0 +1,110 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_NAME 50
+#define FILENAME "students.txt"
+
+// Structure to hold student data
+struct Student {
+    char name[MAX_NAME];
+    int rollNumber;
+    float marks;
+};
+
+// Function to write student records to file
+void writeRecords() {
+    FILE *file = fopen(FILENAME, "w");
+    if (file == NULL) {
+        printf("Error: Could not open file for writing.\n");
+        return;
+    }
+
+    int n;
+    printf("Enter number of students: ");
+    scanf("%d", &n);
+    getchar(); // Clear newline from buffer
+
+    struct Student student;
+    
+    for (int i = 0; i < n; i++) {
+        printf("\nEnter details for student %d:\n", i + 1);
+        
+        printf("Name: ");
+        fgets(student.name, MAX_NAME, stdin);
+        student.name[strcspn(student.name, "\n")] = 0; // Remove newline
+        
+        printf("Roll Number: ");
+        scanf("%d", &student.rollNumber);
+        
+        printf("Marks: ");
+        scanf("%f", &student.marks);
+        getchar(); // Clear newline from buffer
+        
+        // Write to file
+        fprintf(file, "%s %d %.2f\n", student.name, student.rollNumber, student.marks);
+    }
+    
+    fclose(file);
+    printf("\n%d student records saved successfully!\n", n);
+}
+
+// Function to read and display student records from file
+void readRecords() {
+    FILE *file = fopen(FILENAME, "r");
+    if (file == NULL) {
+        printf("Error: Could not open file for reading.\n");
+        printf("Please write some records first.\n");
+        return;
+    }
+
+    struct Student student;
+    int count = 0;
+    
+    printf("\n%-20s %-15s %-10s\n", "Name", "Roll Number", "Marks");
+    printf("--------------------------------------------------\n");
+    
+    // Read from file until end
+    while (fscanf(file, "%49s %d %f", student.name, &student.rollNumber, &student.marks) == 3) {
+        printf("%-20s %-15d %-10.2f\n", student.name, student.rollNumber, student.marks);
+        count++;
+    }
+    
+    fclose(file);
+    
+    if (count == 0) {
+        printf("No records found in file.\n");
+    } else {
+        printf("\nTotal records: %d\n", count);
+    }
+}
+
+int main() {
+    int choice;
+    
+    while (1) {
+        printf("\n===== Student Records Management =====\n");
+        printf("1. Write student records to file\n");
+        printf("2. Read and display student records\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        getchar(); // Clear newline
+        
+        switch (choice) {
+            case 1:
+                writeRecords();
+                break;
+            case 2:
+                readRecords();
+                break;
+            case 3:
+                printf("Exiting program. Goodbye!\n");
+                exit(0);
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    }
+    
+    return 0;
+}
