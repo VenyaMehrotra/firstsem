@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define the Date structure
+struct Date {
+    int day;
+    int month;
+    int year;
+};
+
+// Define the Employee structure with nested Date
+struct Employee {
+    char name[50];
+    int emp_id;
+    float salary;
+    struct Date joining_date;  // Nested structure
+};
+
+// Function to print employee details
+void printEmployee(struct Employee emp) {
+    printf("  Name: %s\n", emp.name);
+    printf("  Employee ID: %d\n", emp.emp_id);
+    printf("  Salary: $%.2f\n", emp.salary);
+    printf("  Joining Date: %02d/%02d/%d\n", 
+           emp.joining_date.day, 
+           emp.joining_date.month, 
+           emp.joining_date.year);
+}
+
+int main() {
+    struct Employee employees[3];
+    int i;
+    
+    // Read data for 3 employees
+    printf("Enter details for 3 employees:\n\n");
+    
+    for(i = 0; i < 3; i++) {
+        printf("Employee %d:\n", i + 1);
+        
+        printf("Enter name: ");
+        if(i == 0) {
+            getchar();  // Clear buffer for first input
+        }
+        fgets(employees[i].name, sizeof(employees[i].name), stdin);
+        employees[i].name[strcspn(employees[i].name, "\n")] = '\0';
+        
+        printf("Enter employee ID: ");
+        scanf("%d", &employees[i].emp_id);
+        
+        printf("Enter salary: ");
+        scanf("%f", &employees[i].salary);
+        
+        printf("Enter joining date (DD MM YYYY): ");
+        scanf("%d %d %d", 
+              &employees[i].joining_date.day,
+              &employees[i].joining_date.month,
+              &employees[i].joining_date.year);
+        getchar();  // Clear newline
+        
+        printf("\n");
+    }
+    
+    // Print all employee data
+    printf("\n========== Employee Records ==========\n\n");
+    
+    for(i = 0; i < 3; i++) {
+        printf("Employee %d:\n", i + 1);
+        printEmployee(employees[i]);
+        printf("--------------------------------------\n");
+    }
+    
+    return 0;
+}
