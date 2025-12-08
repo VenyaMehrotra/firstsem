@@ -1,0 +1,120 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define the Date structure
+struct Date {
+    int day;
+    int month;
+    int year;
+};
+
+// Define the Employee structure with nested Date
+struct Employee {
+    char name[50];
+    int emp_id;
+    float salary;
+    struct Date joining_date;  // Nested structure
+};
+
+// Function to print employee details
+void printEmployee(struct Employee emp) {
+    printf("  Name: %s\n", emp.name);
+    printf("  Employee ID: %d\n", emp.emp_id);
+    printf("  Salary: $%.2f\n", emp.salary);
+    printf("  Joining Date: %02d/%02d/%d\n", 
+           emp.joining_date.day, 
+           emp.joining_date.month, 
+           emp.joining_date.year);
+}
+
+// Function to compare two Date structures
+int compareDates(struct Date d1, struct Date d2) {
+    return (d1.day == d2.day && 
+            d1.month == d2.month && 
+            d1.year == d2.year);
+}
+
+// Function to compare two Employee structures
+int compareEmployees(struct Employee emp1, struct Employee emp2) {
+    // Compare all fields
+    if(strcmp(emp1.name, emp2.name) != 0) {
+        return 0;  // Names are different
+    }
+    if(emp1.emp_id != emp2.emp_id) {
+        return 0;  // IDs are different
+    }
+    if(emp1.salary != emp2.salary) {
+        return 0;  // Salaries are different
+    }
+    if(!compareDates(emp1.joining_date, emp2.joining_date)) {
+        return 0;  // Dates are different
+    }
+    
+    return 1;  // All fields are identical
+}
+
+int main() {
+    struct Employee emp1, emp2;
+    
+    // Read first employee
+    printf("Enter details for Employee 1:\n");
+    
+    printf("Enter name: ");
+    fgets(emp1.name, sizeof(emp1.name), stdin);
+    emp1.name[strcspn(emp1.name, "\n")] = '\0';
+    
+    printf("Enter employee ID: ");
+    scanf("%d", &emp1.emp_id);
+    
+    printf("Enter salary: ");
+    scanf("%f", &emp1.salary);
+    
+    printf("Enter joining date (DD MM YYYY): ");
+    scanf("%d %d %d", 
+          &emp1.joining_date.day,
+          &emp1.joining_date.month,
+          &emp1.joining_date.year);
+    getchar();  // Clear newline
+    
+    printf("\n");
+    
+    // Read second employee
+    printf("Enter details for Employee 2:\n");
+    
+    printf("Enter name: ");
+    fgets(emp2.name, sizeof(emp2.name), stdin);
+    emp2.name[strcspn(emp2.name, "\n")] = '\0';
+    
+    printf("Enter employee ID: ");
+    scanf("%d", &emp2.emp_id);
+    
+    printf("Enter salary: ");
+    scanf("%f", &emp2.salary);
+    
+    printf("Enter joining date (DD MM YYYY): ");
+    scanf("%d %d %d", 
+          &emp2.joining_date.day,
+          &emp2.joining_date.month,
+          &emp2.joining_date.year);
+    
+    printf("\n");
+    
+    // Print both employees
+    printf("========== Employee 1 ==========\n");
+    printEmployee(emp1);
+    printf("\n");
+    
+    printf("========== Employee 2 ==========\n");
+    printEmployee(emp2);
+    printf("\n");
+    
+    // Compare the two employees
+    printf("========== Comparison Result ==========\n");
+    if(compareEmployees(emp1, emp2)) {
+        printf("✓ The two employee records are IDENTICAL!\n");
+    } else {
+        printf("✗ The two employee records are DIFFERENT!\n");
+    }
+    
+    return 0;
+}
