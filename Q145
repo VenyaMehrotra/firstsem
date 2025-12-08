@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define the Student structure
+struct Student {
+    char name[50];
+    int roll_no;
+    float marks;
+};
+
+// Function to print a student's details
+void printStudent(struct Student s) {
+    printf("  Name: %s\n", s.name);
+    printf("  Roll Number: %d\n", s.roll_no);
+    printf("  Marks: %.2f\n", s.marks);
+}
+
+// Function to find and return the student with highest marks
+struct Student findTopStudent(struct Student students[], int size) {
+    int highest_index = 0;
+    int i;
+    
+    for(i = 1; i < size; i++) {
+        if(students[i].marks > students[highest_index].marks) {
+            highest_index = i;
+        }
+    }
+    
+    return students[highest_index];
+}
+
+int main() {
+    struct Student students[5];
+    int i;
+    
+    // Read data for 5 students
+    printf("Enter details for 5 students:\n\n");
+    
+    for(i = 0; i < 5; i++) {
+        printf("Student %d:\n", i + 1);
+        
+        printf("Enter name: ");
+        // Clear input buffer
+        if(i == 0) {
+            getchar();
+        }
+        fgets(students[i].name, sizeof(students[i].name), stdin);
+        // Remove newline character if present
+        students[i].name[strcspn(students[i].name, "\n")] = '\0';
+        
+        printf("Enter roll number: ");
+        scanf("%d", &students[i].roll_no);
+        
+        printf("Enter marks: ");
+        scanf("%f", &students[i].marks);
+        getchar(); // Clear newline from buffer
+        
+        printf("\n");
+    }
+    
+    // Print all student data
+    printf("\n========== Student Records ==========\n\n");
+    
+    for(i = 0; i < 5; i++) {
+        printf("Student %d:\n", i + 1);
+        printStudent(students[i]);
+        printf("------------------------------------\n");
+    }
+    
+    // Get the top student using the function
+    struct Student topStudent = findTopStudent(students, 5);
+    
+    // Print student with highest marks
+    printf("\n🏆 Student with Highest Marks:\n");
+    printStudent(topStudent);
+    
+    return 0;
+}
